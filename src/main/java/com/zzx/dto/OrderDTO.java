@@ -1,8 +1,11 @@
 package com.zzx.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.zzx.dataobject.OrderDetail;
 import com.zzx.enums.OrderStatusEnum;
 import com.zzx.enums.PayStatusEnum;
+import com.zzx.utils.serializer.Date2LongSerializer;
 import lombok.Data;
 
 import javax.persistence.Id;
@@ -18,6 +21,7 @@ import java.util.List;
  * Version 1.0
  **/
 @Data
+//@JsonInclude(JsonInclude.Include.NON_NULL)
 public class OrderDTO {
 
     @Id
@@ -41,8 +45,10 @@ public class OrderDTO {
     // 支付状态，默认0为新订单
     private Integer payStatus = PayStatusEnum.WAIT.getCode();
 
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date createTime;
 
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date updateTime;
 
     List<OrderDetail> orderDetailList;
