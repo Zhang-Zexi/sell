@@ -98,5 +98,4 @@ public class BuyerOrderController {
         buyerService.cancelOrder(openid, orderId);
         return ResultVOUtil.success();
     }
-
 }
