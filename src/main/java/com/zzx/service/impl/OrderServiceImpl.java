@@ -13,6 +13,7 @@ import com.zzx.exception.SellException;
 import com.zzx.repository.OrderDetailRepository;
 import com.zzx.repository.OrderMasterRepository;
 import com.zzx.service.OrderService;
+import com.zzx.service.PayService;
 import com.zzx.service.ProductService;
 import com.zzx.utils.KeyUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -54,6 +55,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private OrderMasterRepository orderMasterRepository;
+
+    @Autowired
+    private PayService payService;
 
     @Override
     @Transactional
@@ -157,8 +161,7 @@ public class OrderServiceImpl implements OrderService {
 
         // 如果已经支付，需要退款
         if (orderDTO.getPayStatus().equals(PayStatusEnum.SUCCESS.getCode())) {
-            // TODO
-
+            payService.refund(orderDTO);
         }
         return orderDTO;
     }
@@ -207,5 +210,12 @@ public class OrderServiceImpl implements OrderService {
             throw new SellException(ResultEnum.ORDER_UPDATE_FAIL);
         }
         return orderDTO;
+    }
+
+    @Override
+    public Page<OrderDTO> findList(Pageable pageable) {
+        Page<OrderMaster> orderMasterPage = orderMasterRepository.findAll(pageable);
+        List<OrderDTO> orderDTOList = OrderMaster2OrderDTOConverter.convert(orderMasterPage.getContent());
+        return new PageImpl<>(orderDTOList, pageable, orderMasterPage.getTotalElements());
     }
 }

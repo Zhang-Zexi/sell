@@ -1,10 +1,12 @@
 package com.zzx.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.zzx.dataobject.OrderDetail;
 import com.zzx.enums.OrderStatusEnum;
 import com.zzx.enums.PayStatusEnum;
+import com.zzx.utils.EnumUtil;
 import com.zzx.utils.serializer.Date2LongSerializer;
 import lombok.Data;
 
@@ -40,10 +42,10 @@ public class OrderDTO {
     private BigDecimal orderAmount;
 
     // 订单状态，默认0为新下单
-    private Integer orderStatus = OrderStatusEnum.NEW.getCode();
+    private Integer orderStatus;
 
     // 支付状态，默认0为新订单
-    private Integer payStatus = PayStatusEnum.WAIT.getCode();
+    private Integer payStatus;
 
     @JsonSerialize(using = Date2LongSerializer.class)
     private Date createTime;
@@ -52,4 +54,14 @@ public class OrderDTO {
     private Date updateTime;
 
     List<OrderDetail> orderDetailList;
+
+    @JsonIgnore
+    public OrderStatusEnum getOrderStatusEnum() {
+        return EnumUtil.getByCode(orderStatus, OrderStatusEnum.class);
+    }
+
+    @JsonIgnore
+    public PayStatusEnum getPayStatusEnum() {
+        return EnumUtil.getByCode(payStatus, PayStatusEnum.class);
+    }
 }

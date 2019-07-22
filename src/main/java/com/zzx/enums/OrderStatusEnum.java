@@ -12,7 +12,7 @@ import javax.persistence.criteria.CriteriaBuilder;
  * Version 1.0
  **/
 @Getter
-public enum  OrderStatusEnum {
+public enum OrderStatusEnum implements CodeEnum {
 
     NEW(0, "新订单"),
     FINISHED(1, "完结"),
@@ -21,10 +21,10 @@ public enum  OrderStatusEnum {
 
     private Integer code;
 
-    private String msg;
+    private String message;
 
-    OrderStatusEnum(Integer code, String msg) {
+    OrderStatusEnum(Integer code, String message) {
         this.code = code;
-        this.msg = msg;
+        this.message = message;
     }
 }
