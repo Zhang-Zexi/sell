@@ -13,4 +13,6 @@ import com.zzx.dto.OrderDTO;
 public interface PayService {
 
     PayResponse create(OrderDTO orderDTO);
+
+    PayResponse notify(String notifyData);
 }

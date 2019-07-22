@@ -2,6 +2,8 @@ package com.zzx.controller;
 
 import com.lly835.bestpay.model.PayResponse;
 import java.util.Map;
+
+import com.lly835.bestpay.rest.type.Post;
 import com.zzx.dto.OrderDTO;
 import com.zzx.enums.ResultEnum;
 import com.zzx.exception.SellException;
@@ -9,9 +11,7 @@ import com.zzx.service.OrderService;
 import com.zzx.service.PayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -48,6 +48,10 @@ public class PayController {
         map.put("returnUrl", returnUrl);
 
         return new ModelAndView("pay/create", map);
+    }
+
+    @PostMapping("/notify")
+    public void notify(@RequestBody String notifyData) {
 
     }
 }
