@@ -1,6 +1,8 @@
 package com.zzx.exception;
 
 import com.zzx.enums.ResultEnum;
+import lombok.Getter;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.persistence.Id;
 
@@ -11,6 +13,7 @@ import javax.persistence.Id;
  * @Date 2019/7/17 15:00
  * Version 1.0
  **/
+@Getter
 public class SellException extends RuntimeException {
 
     private Integer code;

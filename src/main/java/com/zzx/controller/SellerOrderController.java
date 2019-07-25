@@ -39,7 +39,7 @@ public class SellerOrderController {
      * @return
      */
     @GetMapping("/list")
-    public ModelAndView list(@RequestParam(value = "page", defaultValue = "1") Integer page,
+    public ModelAndView list(@RequestParam(value = "page", defaultValue = "0") Integer page,
                              @RequestParam(value = "size", defaultValue = "10") Integer size,
                              Map<String, Object> map) {
         PageRequest request = new PageRequest(page, size);
