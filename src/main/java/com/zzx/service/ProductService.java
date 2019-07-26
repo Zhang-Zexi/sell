@@ -16,13 +16,16 @@ import java.util.List;
  **/
 public interface ProductService {
 
+    // 根据产品Id查询商品信息
     ProductInfo findOne(String productId);
 
     // 查询在架商品
     List<ProductInfo> findUpAll();
 
+    // 查询指定页面的范围的商品
     Page<ProductInfo> findAll(Pageable pageable);
 
+    // 保存商品
     ProductInfo save(ProductInfo productInfo);
 
     // 加库存

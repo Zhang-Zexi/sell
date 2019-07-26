@@ -5,6 +5,9 @@ import org.aopalliance.reflect.Code;
 
 import javax.persistence.criteria.CriteriaBuilder;
 
+/**
+ * 商品状态枚举类
+ */
 @Getter
 public enum ProductStatusEnum implements CodeEnum {
 

@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  * @ClassName OrderForm2OrderDTOConverter
- * @Description
+ * @Description 类型转换工具类
  * @Author zhangzx
  * @Date 2019/7/18 10:27
  * Version 1.0

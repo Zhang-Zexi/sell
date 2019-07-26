@@ -4,7 +4,7 @@ import com.zzx.VO.ResultVO;
 
 /**
  * @ClassName ResultVOUtil
- * @Description
+ * @Description VO结果工具类
  * @Author zhangzx
  * @Date 2019/7/17 10:49
  * Version 1.0

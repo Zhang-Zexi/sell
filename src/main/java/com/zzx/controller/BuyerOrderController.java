@@ -26,7 +26,7 @@ import javax.validation.Valid;
 
 /**
  * @ClassName BuyerOrderController
- * @Description
+ * @Description 买家订单类
  * @Author zhangzx
  * @Date 2019/7/17 20:20
  * Version 1.0

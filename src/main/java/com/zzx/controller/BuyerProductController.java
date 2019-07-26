@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 
 /**
  * @ClassName BuyerProductController
- * @Description 买家商品
+ * @Description 买家商品类
  * @Author zhangzx
  * @Date 2019/7/17 9:32
  * Version 1.0
@@ -36,25 +36,23 @@ public class BuyerProductController {
     @Autowired
     private CategoryService categoryService;
 
+    // 查询商品列表
     @GetMapping("/list")
     public ResultVO list() {
         // 1.查询所有在架商品
         List<ProductInfo> productInfoList = productService.findUpAll();
 
         // 2.查询类目
-
 //        List<Integer> categoryTypeList = new ArrayList<>();
         // 传统方法
 //        for (ProductInfo productInfo : productInfoList) {
 //            categoryTypeList.add(productInfo.getCategoryType());
 //        }
-
         // 精简方法（java8，lamba）
         List<Integer> categoryTypeList = productInfoList.stream().map(e -> e.getCategoryType()).collect(Collectors.toList());
         List<ProductCategory> productCategoryList = categoryService.findByCategoryTypeIn(categoryTypeList);
 
         // 3.数据拼装
-
         // 把类目中需要用到的信息放到返回用的实体
         List<ProductVO> productVOList = new ArrayList<>();
         for (ProductCategory productCategory : productCategoryList) {

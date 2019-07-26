@@ -31,8 +31,14 @@ wechat:
 #  wechatMpAuthorize: http://zzxishero.natapp1.cc
 #  wechatOpenAuthorize: http://zzxishero.natapp1.cc
 #  sell: http://zzxishero.natapp1.cc
-logging:
-  level:
-    com.zzx.dataobject.mapper: trace
+
+#logging:
+#  level:
+#    com.zzx.dataobject.mapper: trace
+#  pattern:
+#    console: "%d - %msg%n"
+#  path: /var/log/tomcat/
+#  file: /var/log/tomcat/sell/
+
 mybatis:
   mapper-locations: classpath:mapper/*.xml
