@@ -43,13 +43,14 @@ public class BuyerProductController {
         List<ProductInfo> productInfoList = productService.findUpAll();
 
         // 2.查询类目
-//        List<Integer> categoryTypeList = new ArrayList<>();
+        List<Integer> categoryTypeList = new ArrayList<>();
         // 传统方法
-//        for (ProductInfo productInfo : productInfoList) {
-//            categoryTypeList.add(productInfo.getCategoryType());
-//        }
+        for (ProductInfo productInfo : productInfoList) {
+            categoryTypeList.add(productInfo.getCategoryType());
+        }
+
         // 精简方法（java8，lamba）
-        List<Integer> categoryTypeList = productInfoList.stream().map(e -> e.getCategoryType()).collect(Collectors.toList());
+//        List<Integer> categoryTypeList = productInfoList.stream().map(e -> e.getCategoryType()).collect(Collectors.toList());
         List<ProductCategory> productCategoryList = categoryService.findByCategoryTypeIn(categoryTypeList);
 
         // 3.数据拼装

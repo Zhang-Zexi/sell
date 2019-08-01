@@ -1,4 +1,3 @@
-<!--
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <configuration>
@@ -22,9 +21,9 @@
                 %msg%n
             </pattern>
         </encoder>
-        &lt;!&ndash;滚动策略&ndash;&gt;
+        <!--滚动策略-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            &lt;!&ndash;路径&ndash;&gt;
+            <!--路径-->
             <fileNamePattern>D:/var/log/tomcat/sell/info.%d.log</fileNamePattern>
         </rollingPolicy>
     </appender>
@@ -39,9 +38,9 @@
                 %msg%n
             </pattern>
         </encoder>
-        &lt;!&ndash;滚动策略&ndash;&gt;
+        <!--滚动策略-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            &lt;!&ndash;路径&ndash;&gt;
+            <!--路径-->
             <fileNamePattern>D:/var/log/tomcat/sell/error.%d.log</fileNamePattern>
         </rollingPolicy>
     </appender>
@@ -53,4 +52,3 @@
     </root>
 
 </configuration>
--->

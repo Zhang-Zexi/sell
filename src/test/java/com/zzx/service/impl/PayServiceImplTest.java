@@ -24,11 +24,11 @@ public class PayServiceImplTest {
     @Autowired
     private OrderService orderService;
 
-//    @Test
-//    public void create() throws Exception{
-//        OrderDTO orderDTO = orderService.findOne("1563421483706252149");
-//        payService.create(orderDTO);
-//    }
+    @Test
+    public void create() throws Exception{
+        OrderDTO orderDTO = orderService.findOne("1563421483706252148");
+        payService.create(orderDTO);
+    }
 
 //    @Test
 //    public void refund() {

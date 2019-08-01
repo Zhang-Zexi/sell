@@ -31,7 +31,7 @@ public class PayController {
     @Autowired
     private PayService payService;
 
-    @GetMapping("create")
+    @GetMapping("/create")
     public ModelAndView create(@RequestParam("orderId") String orderId,
                                @RequestParam("returnUrl") String returnUrl,
                                Map<String, Object> map) {
